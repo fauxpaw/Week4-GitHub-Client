@@ -1,7 +1,7 @@
 #Week 4 - Class 1
 ##Homework
 * Implement an OAuth workflow in your app that successfully lets the user authenticate with your app.
-* Implement the Keychain to store the authorization token, so it only does the OAuth process once.
+* Implement UserDefaults to store the authorization token, so it only does the OAuth process once.
 * Create a Personal Project requirement sheet.
 	* Specify the features of your app.
 	* Rough Navigation Model.
@@ -9,6 +9,7 @@
 	* Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array. The array length will be at least 3.
 * **Bonus:**
 	* Create a github service and implement a method that fetches repositories based on a search term.
+	* Save to keychain instead of UserDefaults.
 
 ###Readings:
 * Apple Documentation
