@@ -9,33 +9,42 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBAction func requestToken(sender: AnyObject) {
-        
-        GitHubOAuth.shared.oAuthRequestWith(["scope": "email,user"])
-        
-    }
     
-    @IBAction func printToken(sender: AnyObject) {
-        do {
-            let token = try GitHubOAuth.shared.checkDefaultsForAccessToken()
-            print(token)
-            
-        } catch let error {
-            print(error)
+    @IBOutlet weak var loginButton: UIButton!
+    
+        @IBAction func requestToken(sender: AnyObject) {
+    
+            GitHubOAuth.shared.oAuthRequestWith(["scope": "email,user,repo"])
+    
         }
-        
-    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.setup()
+        self.setupAppearance()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+}
 
-
+extension ViewController: Setup {
+    //MARK: Setup
+    
+    func setup() {
+        self.title = "Repositories"
+    }
+    
+    func setupAppearance() {
+        //makes button have rounded corners!
+        self.loginButton.layer.cornerRadius = 3.0
+    }
+    
 }
 
