@@ -27,7 +27,10 @@ class API
         
         self.template.scheme = "https"
         self.template.host = "api.github.com"
-        
+        getToken()
+    }
+    
+    func getToken(){
         do {
             if let token = try GitHubOAuth.shared.checkDefaultsForAccessToken() {
                 self.template.queryItems = [NSURLQueryItem(name: "access_token", value: token)]
@@ -35,6 +38,7 @@ class API
         } catch {
             
         }
+        
     }
     
     func GETRepositories(completion: (repositories: [Repository]?) -> ()){
@@ -50,7 +54,7 @@ class API
                 print(data)
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [[String: AnyObject]] {
-//                        print(json)
+                        //                        print(json)
                         
                         var repositories = [Repository]()
                         for repositoryJSON in json {
@@ -58,7 +62,7 @@ class API
                                 repositories.append(repository)
                             }
                         }
-                        NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                        NSOperationQueue.mainQueue().addOperationWithBlock({
                             completion(repositories: repositories)
                         })
                         
@@ -69,7 +73,7 @@ class API
             }
             
             
-        }.resume()
+            }.resume()
     }
     
 }

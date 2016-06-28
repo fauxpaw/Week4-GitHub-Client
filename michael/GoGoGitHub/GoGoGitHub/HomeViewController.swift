@@ -27,14 +27,19 @@ class HomeViewController: UIViewController {
     {
         super.didReceiveMemoryWarning()
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    
+    func setup(){
         API.shared.GETRepositories { (repositories) in
             if let data = repositories {
                 self.repositories = data
             }
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setup()
+        
     }
     
 }

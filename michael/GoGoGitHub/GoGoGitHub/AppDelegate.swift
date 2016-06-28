@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }, completion: { (finished) in
                         oauthViewController.view.removeFromSuperview()
                         oauthViewController.removeFromParentViewController()
+                        
+                        API.shared.getToken()
+                        self.checkOAuthStatus()
+                        if let homeView =  self.window?.rootViewController as? HomeViewController {
+                            homeView.setup()
+                        }
                 })
             }
             //animate with durarion
