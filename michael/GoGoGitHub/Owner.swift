@@ -26,6 +26,7 @@ struct Owner {
         }
         
         else {
+            print("issue creating owner")
             return nil
         }
     }

@@ -12,11 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-        @IBAction func requestToken(sender: AnyObject) {
-    
-            GitHubOAuth.shared.oAuthRequestWith(["scope": "email,user,repo"])
-    
-        }
+    @IBAction func requestToken(sender: AnyObject) {
+        
+        GitHubOAuth.shared.oAuthRequestWith(["scope": "email,user,repo"])
+        
+    }
     
     
     
@@ -30,7 +30,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
 

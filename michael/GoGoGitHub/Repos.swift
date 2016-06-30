@@ -34,6 +34,7 @@ struct Repository {
             self.owner = Owner(json: json["owner"] as! [String: AnyObject])
         }
         else {
+            print("issue creating repo")
             return nil
         }
     }
